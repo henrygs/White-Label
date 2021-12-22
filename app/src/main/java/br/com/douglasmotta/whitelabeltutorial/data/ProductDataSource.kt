@@ -9,5 +9,5 @@ interface ProductDataSource {
 
     suspend fun uploadProductImage(imageuUri: Uri): String
 
-    suspend fun createProduct(product: Product): String
+    suspend fun createProduct(product: Product): Product
 }

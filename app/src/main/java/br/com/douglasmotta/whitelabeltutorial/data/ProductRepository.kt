@@ -10,6 +10,6 @@ class ProductRepository(private val dataSource: ProductDataSource) {
     suspend fun uploadProductImage(imageuUri: Uri): String =
         dataSource.uploadProductImage(imageuUri)
 
-    suspend fun createProduct(product: Product): String =
+    suspend fun createProduct(product: Product): Product =
         dataSource.createProduct(product)
 }
