@@ -11,7 +11,7 @@ import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 import kotlin.coroutines.suspendCoroutine
 
-class FirevaseProductDataSource(
+class FirebaseProductDataSource(
     firebaseStorage: FirebaseStorage,
     firebaseFirestore: FirebaseFirestore
 ) : ProductDataSource{
