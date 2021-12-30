@@ -6,17 +6,19 @@ plugins {
 
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.gms.google-services'
+
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "br.com.henrique.whitelabeltutorial"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,25 +35,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
         viewBinding true
     }
-    productFlavors {
+    productFlavors{
         flavorDimensions 'product', 'side'
         bike{
             dimension 'product'
             applicationIdSuffix '.bike'
             manifestPlaceholders.appName = "Bike"
 
-            buildConfigField "String", "FIREBASE_FLAVOR_COLLECTION", "\"bike\""
+            buildConfigField "String","FIREBASE_FLAVOR_COLLECTION", "\"bike\""
         }
         car{
             dimension 'product'
             applicationIdSuffix '.car'
             manifestPlaceholders.appName = "Car"
 
-            buildConfigField "String", "FIREBASE_FLAVOR_COLLECTION", "\"car\""
+            buildConfigField "String","FIREBASE_FLAVOR_COLLECTION", "\"car\""
         }
         client{
             dimension 'side'
@@ -74,7 +75,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
 
     def nav_version = "2.3.5"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -111,5 +112,3 @@ kapt {
         option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
     }
 }
-
-apply plugin: 'com.google.gms.google-services'
