@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetProductUseCaseImpl @Inject constructor(
     private val productRepository: ProductRepository
-): GetProductUseCase {
+): GetProductsUseCase {
     override suspend fun invoke(): List<Product> {
         return productRepository.getProduct()
     }
